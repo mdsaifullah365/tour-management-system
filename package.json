@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
-    "start": "node server",
-    "server": "nodemon server"
+    "start": "node index",
+    "server": "nodemon index"
   },
   "dependencies": {
     "colors": "^1.4.0",
