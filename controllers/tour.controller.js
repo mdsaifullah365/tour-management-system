@@ -104,3 +104,49 @@ module.exports.updateTourById = async (req, res) => {
     });
   }
 };
+
+module.exports.getMostViewedTours = async (req, res) => {
+  try {
+    const queries = {
+      limit: 3,
+      sortBy: '-__v',
+    };
+
+    const result = await getToursService(queries);
+
+    res.status(200).json({
+      success: true,
+      message: 'Successfully got the data',
+      data: result.tours,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: "Couldn't get the data",
+      error: error.message,
+    });
+  }
+};
+
+module.exports.getCheapestTours = async (req, res) => {
+  try {
+    const queries = {
+      limit: 3,
+      sortBy: 'price',
+    };
+
+    const result = await getToursService(queries);
+
+    res.status(200).json({
+      success: true,
+      message: 'Successfully got the data',
+      data: result.tours,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: "Couldn't get the data",
+      error: error.message,
+    });
+  }
+};
