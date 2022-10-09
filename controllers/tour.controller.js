@@ -68,6 +68,13 @@ module.exports.getTourById = async (req, res, next) => {
 
     const result = await getTourByIdService(id);
 
+    if (!result) {
+      return res.status(400).json({
+        success: false,
+        message: "Couldn't find the data",
+      });
+    }
+
     res.status(200).json({
       success: true,
       message: 'Successfully got the data',
