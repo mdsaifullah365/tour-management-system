@@ -91,6 +91,13 @@ module.exports.updateTourById = async (req, res) => {
 
     const result = await updateTourByIdService(id, data);
 
+    if (!result.matchedCount) {
+      return res.status(400).json({
+        success: false,
+        error: 'Id not found',
+      });
+    }
+
     res.status(200).json({
       success: true,
       message: 'Successfully updated the data',
