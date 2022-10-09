@@ -7,9 +7,9 @@ const validateId = (req, res, next) => {
       success: false,
       error: 'Id is invalid',
     });
-  } else {
-    next();
   }
+
+  next();
 };
 
 module.exports = validateId;

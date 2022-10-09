@@ -116,7 +116,7 @@ module.exports.getMostViewedTours = async (req, res) => {
   try {
     const queries = {
       limit: 3,
-      sortBy: '-__v',
+      sortBy: '-views',
     };
 
     const result = await getToursService(queries);
